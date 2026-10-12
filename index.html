@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escuela Europea de Emergencias | Enlaces</title>
+  <!-- Fuentes e Iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg: #F4F1EA;
+      --card-bg: #FFFFFF;
+      --card-border: rgba(26, 26, 26, 0.08);
+      --card-hover-border: #F1C40F;
+      --text-main: #1A1A1A;
+      --text-muted: #666660;
+      --accent-gold: #F1C40F;
+      --shadow-subtle: 0 4px 18px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 8px 24px rgba(241, 196, 15, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 36px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 920px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Cabecera y Logo */
+    .brand-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-e3 {
+      width: 180px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* Títulos de sección */
+    .section-title {
+      width: 100%;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+      margin: 24px 0 10px;
+      font-weight: 700;
+    }
+
+    .section-description {
+      width: 100%;
+      margin: -4px 0 14px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      text-decoration: none;
+      background: var(--bg);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      padding: 8px 14px;
+      border-radius: 999px;
+      box-shadow: 4px 4px 10px rgba(26, 26, 26, 0.08), -4px -4px 10px rgba(255, 255, 255, 0.82);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      text-align: center;
+    }
+
+    .course-card:hover,
+    .resource-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--card-hover-border);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .contact-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(241, 196, 15, 0.38);
+      box-shadow: 5px 5px 12px rgba(26, 26, 26, 0.09), -5px -5px 12px rgba(255, 255, 255, 0.88);
+    }
+
+    .contact-icon {
+      font-size: 0.95rem;
+    }
+
+    .whatsapp-icon {
+      color: #25D366;
+    }
+
+    .mail-icon {
+      color: #D44638;
+    }
+
+    .review-icon {
+      color: var(--accent-gold);
+    }
+
+    .contact-label {
+      color: var(--text-main);
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .contact-short {
+      display: none;
+    }
+
+    .course-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .link-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .course-card,
+    .resource-card {
+      display: flex;
+      text-decoration: none;
+      color: var(--text-main);
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-subtle);
+      transition: all 0.22s ease;
+      overflow: hidden;
+    }
+
+    .course-card {
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .course-flyer {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .course-info {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+      padding: 14px;
+      flex: 1;
+    }
+
+    .link-content {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .link-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: block;
+      color: var(--text-main);
+    }
+
+    .link-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 3px;
+      display: block;
+    }
+
+    .course-date,
+    .course-place {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .course-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 38px;
+      margin-top: auto;
+      padding: 8px 10px;
+      border-radius: 9px;
+      background: #2D8A61;
+      color: #FFFFFF;
+      box-shadow: 3px 3px 7px rgba(26, 26, 26, 0.1), inset 1px 1px 2px rgba(255, 255, 255, 0.22);
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .chevron {
+      color: #b0aca2;
+      font-size: 0.85rem;
+      margin-left: auto;
+      flex: 0 0 auto;
+    }
+
+    .resource-card {
+      width: 100%;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .icon-box {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border-radius: 10px;
+      background: #FAF8F4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      font-size: 1.15rem;
+    }
+
+    .pdf-icon {
+      color: #E53935;
+    }
+
+    .resource-card .icon-box {
+      margin-right: 14px;
+    }
+
+    footer {
+      margin-top: 36px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .course-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .course-card {
+        flex-direction: column;
+      }
+
+      .course-flyer {
+        width: 100%;
+        flex: 0 0 auto;
+        height: auto;
+        aspect-ratio: auto;
+        object-fit: contain;
+      }
+
+      .course-info {
+        min-width: 0;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 24px 14px;
+      }
+
+      .contact-link {
+        padding: 8px 10px;
+        gap: 6px;
+      }
+
+      .contact-label {
+        font-size: 0.65rem;
+      }
+
+      .contact-long {
+        display: none;
+      }
+
+      .contact-short {
+        display: inline;
+      }
+
+      .course-info {
+        padding: 8px;
+        gap: 7px;
+      }
+
+      .link-title {
+        font-size: 0.82rem;
+      }
+
+      .link-desc {
+        font-size: 0.68rem;
+      }
+
+      .course-date,
+      .course-place {
+        font-size: 0.68rem;
+      }
+
+      .course-cta {
+        min-height: 34px;
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Cabecera -->
+    <header class="brand-header">
+      <div class="logo-wrapper">
+        <img src="images/logo-e3.svg" alt="Escuela Europea de Emergencias" class="logo-e3">
+      </div>
+    </header>
+
+    <nav class="contact-links" aria-label="Contacto y opiniones">
+      <a href="https://wa.me/message/B7VZ4BKQQNU7O1" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Escríbenos por WhatsApp">
+        <i class="fa-brands fa-whatsapp contact-icon whatsapp-icon" aria-hidden="true"></i>
+        <span class="contact-label contact-long">Escríbenos por WhatsApp</span>
+        <span class="contact-label contact-short">WhatsApp</span>
+      </a>
+      <a href="mailto:info@escuelaeuropeadeemergencias.es?subject=Consulta%20Cursos" class="contact-link" aria-label="Envíanos un mail">
+        <i class="fa-regular fa-envelope contact-icon mail-icon" aria-hidden="true"></i>
+        <span class="contact-label contact-long">Envíanos un mail</span>
+        <span class="contact-label contact-short">Mail</span>
+      </a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJ49tEZAIeWg0RUbMPlfSOS1M" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Déjanos una reseña">
+        <i class="fa-solid fa-star contact-icon review-icon" aria-hidden="true"></i>
+        <span class="contact-label">Reseña</span>
+      </a>
+    </nav>
+
+    <!-- Próximos cursos -->
+    <h2 class="section-title">Próximos Cursos</h2>
+    <p class="section-description">Reserva tu plaza llenando el formulario de inscripción</p>
+    <div class="course-grid">
+      <a href="https://www.escuelaeuropeadeemergencias.es/phtls-ed-10-pontevedra-prehospital-trauma-life-support_ev28223.html" target="_blank" rel="noopener noreferrer" class="course-card">
+        <img src="images/flyer-phtls.png" alt="Flyer del curso PHTLS" class="course-flyer">
+        <div class="course-info">
+          <div class="link-content">
+            <span class="link-title">PHTLS</span>
+            <span class="course-date">7 y 8 de noviembre</span>
+            <span class="course-place">Pontevedra, Galicia</span>
+            <span class="course-cta">Inscripción</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.escuelaeuropeadeemergencias.es/curso-de-rcp-y-manejo-del-desfibrilador-desa-certificado-por-erc_ev54291.html" target="_blank" rel="noopener noreferrer" class="course-card">
+        <img src="images/flyer-rcp-desa.PNG" alt="Flyer del curso de RCP y DESA" class="course-flyer">
+        <div class="course-info">
+          <div class="link-content">
+            <span class="link-title">RCP y DESA</span>
+            <span class="course-date">26 sep · 3, 17 y 31 oct</span>
+            <span class="course-place">Lugo · Ourense · Vigo · A Coruña</span>
+            <span class="course-cta">Inscripción</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.escuelaeuropeadeemergencias.es/curso-de-control-de-hemorragias-stop-the-bleed_ev28231.html" target="_blank" rel="noopener noreferrer" class="course-card">
+        <img src="images/flyer-stb.PNG" alt="Flyer del curso Stop the Bleed" class="course-flyer">
+        <div class="course-info">
+          <div class="link-content">
+            <span class="link-title">Stop the Bleed</span>
+            <span class="course-date">26 sep · 3, 17 y 31 oct</span>
+            <span class="course-place">Lugo · Ourense · Vigo · A Coruña</span>
+            <span class="course-cta">Inscripción</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.escuelaeuropeadeemergencias.es/swiftwater-rescue-technician-swrt_ev28230.html" target="_blank" rel="noopener noreferrer" class="course-card">
+        <img src="images/flyer-swrt.png" alt="Flyer del curso Swiftwater and Flood Rescue Technician" class="course-flyer">
+        <div class="course-info">
+          <div class="link-content">
+            <span class="link-title">SWRT</span>
+            <span class="course-date">22-25 de octubre</span>
+            <span class="course-place">Padrón, Galicia</span>
+            <span class="course-cta">Inscripción</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Recursos formativos -->
+    <span class="section-title">Recursos formativos</span>
+    <div class="link-list">
+      <a href="docs/erc-guidelines-bls-2025-es.pdf" download="Guias-ERC-BLS-2025-ES.pdf" class="resource-card">
+        <div class="icon-box"><i class="fa-solid fa-file-pdf pdf-icon" aria-hidden="true"></i></div>
+        <div class="link-content">
+          <span class="link-title">Guías ERC 2025 · Soporte Vital Básico (BLS)</span>
+          <span class="link-desc">Descarga PDF · Relacionadas con RCP y DESA</span>
+        </div>
+        <i class="fa-solid fa-download chevron" aria-hidden="true"></i>
+      </a>
+      <a href="docs/erc-guidelines-first-aid-2025-es.pdf" download="Guias-ERC-Primeros-Auxilios-2025-ES.pdf" class="resource-card">
+        <div class="icon-box"><i class="fa-solid fa-file-pdf pdf-icon" aria-hidden="true"></i></div>
+        <div class="link-content">
+          <span class="link-title">Guías ERC 2025 · Primeros Auxilios</span>
+          <span class="link-desc">Descarga PDF · Relacionadas con PHTLS y Stop the Bleed</span>
+        </div>
+        <i class="fa-solid fa-download chevron" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <footer>© Escuela Europea de Emergencias</footer>
+  </div>
+
+</body>
+</html>
